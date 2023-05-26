@@ -38,8 +38,23 @@ class ContentTestCase(unittest.TestCase):
 
     def test_movie_str(self):
         movie = Movie("Inception", 2010, director="Christopher Nolan", duration=2.5)
-        expected_output = "Inception is a 2.5 long Movie, released in 2010, directed by Christopher Nolan"
+        expected_output = "Inception is a 2.5 hours long Movie, released in 2010, directed by Christopher Nolan"
         self.assertEqual(str(movie), expected_output)
+
+    def test_music_str(self):
+        music = Music("Bohemian Rhapsody", 1975, artist="Queen", duration=5.5)
+        expected_output = "Bohemian Rhapsody is a 5.5 minutes long Music, released in 1975, created by Queen"
+        self.assertEqual(str(music), expected_output)
+
+    def test_series_str(self):
+        series = Series("Friends", 1994, season=10, duration=22.0)
+        expected_output = "Friends is a 10 seasons long Series, released in 1994."
+        self.assertEqual(str(series), expected_output)
+
+    def test_book_str(self):
+        book = Book("To Kill a Mockingbird", 1960, author="Harper Lee", pages=336)
+        expected_output = "To Kill a Mockingbird is a 336 pages long Book, released in 1960, written by Harper Lee"
+        self.assertEqual(str(book), expected_output)
 
 
 if __name__ == "__main__":

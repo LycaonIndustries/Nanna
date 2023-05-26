@@ -1,31 +1,38 @@
-from functools import partial
 import requests
-from bs4 import BeautifulSoup, SoupStrainer
+from src.content import *
+import json
 
 
-def google_search(query):
-    response = requests.get(f"https://www.google.com/search?q={query}")
-    if response.status_code == 200:
-        soup = BeautifulSoup(
-            response.content, parse_only=SoupStrainer("a"), features="html.parser"
-        )
-        soup = [link["href"] for link in soup if link.has_attr("href")]
+def response_parser(response: dict) -> Content:
+    """Read the json response and extracts important information from the chaos."""
+    data = Content(
+        name=response.get("Title"),
+        year=response.get("Year"),
+        content_type=response.get("Type"),
+    )
+    return data
+
+
+def imdb_search(query : str):
+
+    response = requests.get(f"http://www.omdbapi.com/?t={query}&apikey=1ceb3181")
+    response_json = response.json()
+
+    response_json = dict(json.load(open("sample/movie.json")))
+
+    data = response_parser(response_json)
+
+    if data.content_type == "Movie":
+        handle_movie(data)
+    elif data.content_type == "Series":
+        handle_series(data)
+    elif data.content_type == "Music":
+        handle_music(data)
+    elif data.content_type == "Book":
+        handle_book(data)
     else:
-        print("Error: Request failed with status code", response.status_code)
-
-    guess = any([True for s in soup if "movie" in s.lower()])
-    # for s in soup:
-    #     if "movie" in s:
-    #         print(s)
-    print(guess)
-    # results = response.json()
-    # content_type = extract_content_type(results)
-    # return content_type
-
-
-def extract_content_type(results):
-    content_type = "Movie"
-    return content_type
+        print("Unsupported or unspecified data.")
+        exit()
 
 
 def handle_movie(content):
@@ -44,7 +51,5 @@ def handle_book(content):
     print(f"Handling Book: {content}")
 
 
-def search_content(query):
-    get_content_type = partial(google_search, query)
-    content_type = get_content_type()
-    print(content_type)
+if __name__ == "__main__":
+    imdb_search(input("Title:\t"))
