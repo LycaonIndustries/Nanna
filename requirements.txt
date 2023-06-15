@@ -165,6 +165,6 @@ mypy-extensions==0.4.3
 packaging @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_e946luvhc3/croot/packaging_1678965323926/work
 pathspec @ file:///Users/cbousseau/work/recipes/ci_py311_2/pathspec_1678995598596/work
 platformdirs @ file:///Users/cbousseau/work/recipes/ci_py311/platformdirs_1677909443319/work
-requests==2.30.0
+requests==2.31.0
 soupsieve==2.4.1
 urllib3==2.0.2
