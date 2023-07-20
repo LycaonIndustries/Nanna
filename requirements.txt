@@ -54,7 +54,7 @@ ptyprocess==0.7.0
 pure-eval==0.2.2
 pycryptodomex==3.17
 pyflakes==3.0.1
-Pygments==2.14.0
+Pygments==2.15.0
 pylint==2.16.2
 python-dateutil==2.8.2
 python-ffmpeg-video-streaming==0.1.15
@@ -132,7 +132,7 @@ ptyprocess==0.7.0
 pure-eval==0.2.2
 pycryptodomex==3.17
 pyflakes==3.0.1
-Pygments==2.14.0
+Pygments==2.15.0
 pylint==2.16.2
 python-dateutil==2.8.2
 python-ffmpeg-video-streaming==0.1.15
