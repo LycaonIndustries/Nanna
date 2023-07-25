@@ -157,7 +157,7 @@ yt-dlp==2023.2.17
 beautifulsoup4==4.12.2
 black @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_29yzn6blpk/croot/black_1680737263429/work
 bs4==0.0.1
-certifi==2023.5.7
+certifi==2023.7.22
 charset-normalizer==3.1.0
 click @ file:///Users/cbousseau/work/recipes/ci_py311/click_1677920889666/work
 idna==3.4
